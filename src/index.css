@@ -1,0 +1,346 @@
+/* ============================================
+   MANA SATHULURU — Global Design System
+   ============================================ */
+
+/* --- CSS Reset & Base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Color Palette */
+  --gold-primary: #D4AF37;
+  --gold-light: #F5D678;
+  --gold-glow: #FFD700;
+  --gold-deep: #B8860B;
+  --black-deep: #050505;
+  --black-rich: #0A0A0A;
+  --black-soft: #111111;
+  --green-dark: #0D1F0F;
+  --green-deep: #071A09;
+  --white: #FFFFFF;
+  --white-muted: rgba(255,255,255,0.85);
+  --white-dim: rgba(255,255,255,0.6);
+  --white-faint: rgba(255,255,255,0.15);
+  --border-gold: rgba(212,175,55,0.35);
+  --border-gold-bright: rgba(212,175,55,0.7);
+  --glass-bg: rgba(5,5,5,0.65);
+  --glass-bg-light: rgba(255,255,255,0.05);
+  --text-primary: #F0E6C8;
+  --text-secondary: rgba(240,230,200,0.7);
+  --text-muted: rgba(240,230,200,0.45);
+
+  /* Typography */
+  --font-display: 'Cinzel', Georgia, serif;
+  --font-body: 'Cormorant Garamond', Georgia, serif;
+  --font-ui: 'Inter', system-ui, sans-serif;
+
+  /* Spacing */
+  --section-pad: 100px 0;
+  --container-max: 1280px;
+  --container-pad: 0 5%;
+
+  /* Transitions */
+  --transition-smooth: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Light theme variables */
+.light-theme {
+  --black-deep: #F8F4EE;
+  --black-rich: #F0EBE0;
+  --black-soft: #E8DFD0;
+  --green-dark: #F5F0E8;
+  --glass-bg: rgba(248,244,238,0.9);
+  --glass-bg-light: rgba(0,0,0,0.04);
+  --text-primary: #1A1004;
+  --text-secondary: rgba(26,16,4,0.75);
+  --text-muted: rgba(26,16,4,0.5);
+  --border-gold: rgba(180,140,30,0.35);
+  --white-faint: rgba(0,0,0,0.07);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--black-deep);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--black-rich);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold-primary);
+  border-radius: 3px;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+/* --- Utility Classes --- */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--container-pad);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--gold-primary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 3.5rem;
+}
+
+.gold-divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+  margin: 1rem auto 1.5rem;
+}
+
+.gold-text {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-primary), var(--gold-deep));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- Section Base --- */
+.section {
+  padding: var(--section-pad);
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+/* --- Cards --- */
+.card {
+  background: linear-gradient(135deg, var(--glass-bg), rgba(13,31,15,0.4));
+  border: 1px solid var(--border-gold);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.card:hover {
+  border-color: var(--border-gold-bright);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(212,175,55,0.15), 0 0 0 1px rgba(212,175,55,0.2);
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 50px;
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+  color: #0A0600;
+  box-shadow: 0 4px 20px rgba(212,175,55,0.3);
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, var(--gold-glow), var(--gold-light));
+  box-shadow: 0 6px 30px rgba(212,175,55,0.5);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--gold-primary);
+  border: 1px solid var(--border-gold-bright);
+}
+
+.btn-outline:hover {
+  background: rgba(212,175,55,0.1);
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 20px rgba(212,175,55,0.2);
+}
+
+.btn-instagram {
+  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: white;
+  box-shadow: 0 4px 20px rgba(220,39,67,0.35);
+}
+
+.btn-instagram:hover {
+  box-shadow: 0 6px 30px rgba(220,39,67,0.5);
+  transform: translateY(-2px);
+}
+
+/* --- Animation Utilities --- */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(212,175,55,0.4), 0 0 40px rgba(212,175,55,0.2); }
+  50% { box-shadow: 0 0 40px rgba(212,175,55,0.7), 0 0 80px rgba(212,175,55,0.35); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(8px); opacity: 0.5; }
+}
+
+@keyframes kenBurns {
+  0% { transform: scale(1) translate(0, 0); }
+  50% { transform: scale(1.08) translate(-1%, -0.5%); }
+  100% { transform: scale(1) translate(0, 0); }
+}
+
+@keyframes leafSway {
+  0%, 100% { transform: rotate(-3deg) translateX(0); }
+  50% { transform: rotate(3deg) translateX(5px); }
+}
+
+@keyframes particle-float {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+}
+
+/* --- Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --- Image Styles --- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- Form Styles --- */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: 0.5rem;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  background: rgba(212,175,55,0.05);
+  border: 1px solid var(--border-gold);
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: var(--transition-smooth);
+  outline: none;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.1);
+  background: rgba(212,175,55,0.08);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  :root {
+    --section-pad: 70px 0;
+  }
+
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-pad: 50px 0;
+  }
+}

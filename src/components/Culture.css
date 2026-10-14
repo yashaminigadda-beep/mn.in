@@ -1,0 +1,205 @@
+/* ========== CULTURE SECTION ========== */
+.culture-section {
+  position: relative;
+  overflow: hidden;
+  background: var(--black-deep);
+}
+
+.culture-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.culture-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.6) brightness(0.4);
+}
+
+.culture-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(5,5,5,0.92) 0%,
+    rgba(13,31,15,0.88) 50%,
+    rgba(5,5,5,0.95) 100%
+  );
+}
+
+.culture-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Festivals Grid */
+.festivals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+/* Festival Card */
+.festival-card {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  background: rgba(5,5,5,0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.festival-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,175,55,0.3);
+}
+
+.festival-icon-ring {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent-color) 20%, transparent), transparent);
+  border: 1px solid color-mix(in srgb, var(--accent-color) 50%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  color: var(--accent-color, var(--gold-primary));
+  transition: transform 0.4s ease;
+}
+
+.festival-card:hover .festival-icon-ring {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.festival-period {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--accent-color, var(--gold-primary)) 80%, white);
+  margin-bottom: 0.5rem;
+}
+
+.festival-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.875rem;
+}
+
+.festival-desc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.festival-glow {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 60px;
+  background: radial-gradient(ellipse, color-mix(in srgb, var(--accent-color, var(--gold-primary)) 15%, transparent), transparent);
+  pointer-events: none;
+  transition: opacity 0.4s;
+  opacity: 0;
+}
+
+.festival-card:hover .festival-glow {
+  opacity: 1;
+}
+
+/* Traditions */
+.traditions-section {
+  border-top: 1px solid var(--border-gold);
+  padding-top: 3rem;
+}
+
+.traditions-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold-primary);
+  letter-spacing: 0.08em;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.traditions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.tradition-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  padding: 1rem 1.25rem;
+  background: rgba(212,175,55,0.04);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.tradition-item:hover {
+  background: rgba(212,175,55,0.08);
+  border-color: var(--border-gold-bright);
+}
+
+.tradition-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold-primary);
+  flex-shrink: 0;
+  margin-top: 0.35rem;
+  box-shadow: 0 0 8px rgba(212,175,55,0.5);
+}
+
+.tradition-label {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.2rem;
+}
+
+.tradition-desc {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .festivals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .traditions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .festivals-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .traditions-grid {
+    grid-template-columns: 1fr;
+  }
+}
